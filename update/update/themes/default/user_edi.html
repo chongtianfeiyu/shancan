@@ -1,0 +1,56 @@
+{include file='lib/header.html'}
+<div class="row">
+	
+    <div class="span2">{include file='usernavleft.html'}</div>
+    
+	<div class="span7">												 
+	
+
+ <form class="form " action="index.php?m=user&a=edi_db" method="post">
+ <table class="table table-bordered">
+ 	<tr>
+    	<td colspan="2"><h2>联系方式</h2></td>
+    </tr>
+    
+ 	<tr>
+    	<td>昵称</td>
+        <td><input type="text" name="nickname" class="h30" value="{$user.nickname}" /></td>
+    </tr>
+    
+     <tr>
+    	<td>手机号码</td>
+        <td><input type="text" class="h30" name="phone" id="mobile_number" value="{$user.phone}"></td>
+    </tr>
+    
+     <tr>
+    	<td>QQ</td>
+        <td><input type="text" class="h30" name="qq" id="qq" value="{$user.qq}" /></td>
+    </tr>
+    
+    <tr>
+    	<td colspan="2"><input class="btn btn-large btn-success" type="submit" value="保存"></td>
+    </tr>
+ 
+ </table>
+
+					 
+	</form>
+    
+	</div>
+			
+		<div class="span3">
+            <h2>联系方式确认</h2>
+            
+            <p>
+                从网站订餐前，您需要设置手机号码，昵称，这是为了餐厅送餐人员与你取得联系。
+            </p>
+		</div>
+							
+		</div>
+{include file='lib/footer.html'}
+
+
+
+
+
+

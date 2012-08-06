@@ -1,0 +1,82 @@
+{include file='lib/header.html'}
+
+<div class="row">
+
+<div class="span8">
+{include file='shopnav.html'}
+{if $list}
+<table class="table table-bordered">
+{foreach item=g from=$list}
+<tr><td>@{$g.orderuser} 下了订单{$g.orderno} 时间：{$g.dateline|date:Y-m-d H@i} </td></tr>
+<tr><td>
+ 菜单：{foreach item=c from=$g.cais}{$c.title} &nbsp;  {/foreach}</td></tr>
+{/foreach}
+</table>
+{else}
+<h2>暂无订单</h2>
+{/if}
+
+</div>
+<!--左边结束-->
+<div class="span4">
+
+ <h3>餐厅基本信息</h3>
+ <table  class="table table-bordered table-striped table-condensed"  >
+ 					<tr>
+                    <td>店铺名称</td>
+                    <td>{$shop.shopname}</td>
+                    </tr>
+					<tr  >
+					<td  width="100">外卖时间</td>
+					<td class="span8">{$shopconfig.starthour}:{if !$shopcaonfig.startminute}00{else}{$shopconfig.startminute}{/if}-{$shopconfig.endhour}:{if !$shopconfig.endminute}00{else}{$shopconfig.endminute}{/if}</td>
+				</tr>
+				<tr  >
+					<td>送餐费用</td>
+					<td>{$shopconfig.sendprice}元</td>
+				</tr>
+				<tr >
+					<td>起送金额</td>
+					<td>{$shopconfig.minprice}元</td>
+				</tr>
+                
+                <tr  >
+					<td>餐厅地址</td>
+					<td>{$shop.address}</td>
+				</tr>
+                
+                <tr  >
+					<td>餐厅电话</td>
+					<td>{$shop.phone}</td>
+				</tr>
+                
+				<tr class="restaurant_info_item">
+					<td>送餐范围</td>
+					<td>{$shop.sendarea}</td>
+				</tr>
+					<tr  >
+					<td>还有……</td>
+					<td>
+						{$shop.info}
+					</td>
+				</tr>
+								
+								
+			</table>   
+ <div>
+ <h2>还是不太敢在线订餐？</h2>
+ <p>别担心，你的订单会立刻得到处理，进度还会实时反馈给你。很多人已经用上瘾了，你也试一次吧。</p>
+ </div>
+ <form   action="index.php?m=guest&a=add_db" method="post">
+					<input type="hidden" name="shopid" value="{$smarty.get.shopid}" />			 
+					<textarea id="ask_answer_content"  class="input-xlarge"  style="height:100px;" name="content"></textarea>
+				 
+					<p><input   type="submit" value="好了，提交" class="btn btn-success"></p>
+				 
+			</form>
+
+ 
+
+ </div>
+ <!--右侧结束-->
+</div>
+{include file='lib/footer.html'}

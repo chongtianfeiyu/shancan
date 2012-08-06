@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>模板在线编辑</title>
+<script language="javascript" src="js/jquery.js"></script>
+
+<link href="{$skins}css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="body">
+
+<div class="right">
+<div class="nav"><a href="admin.php?m=skins">模板管理</a>  <a href="admin.php?m=skins_edi">模板编辑</a></div>
+<div class="nav_title">模板编辑</div>
+<form action="admin.php" method="get">
+<input type="hidden" name="m" value="skins_edi" />
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" class="tb1">
+  <tr>
+    <td width="618" height="30" align="right"><select name="skinsfile" id="skinsfile">
+    {if $skinsfile}<option value="{$skinsfile}">{$skinsfile}</option>{/if}
+      <option>请选择文件</option>
+      {foreach item=t from=$filelist}
+      <option value="{$t}">{$t}</option>
+      {/foreach}
+    </select></td>
+    <td width="142"><input type="submit" name="button" id="button" value="编辑" class="btn" /></td>
+  </tr>
+  </table>
+
+
+</form>
+
+<form action="admin.php?m=skins_edi&a=edifile" method="post">
+<input type="hidden" name="file" value="{$skinsfile}" />
+<table width="100%" align="center">
+<tr><td><textarea name="content" style="width:100%; height:600px;">{$content}</textarea></td></tr>
+<tr>
+  <td height="30" align="center"><input type="submit" name="button2" id="button2" value="提交" class="btn" /></td>
+</tr>
+</table>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

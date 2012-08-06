@@ -1,0 +1,64 @@
+{include file='lib/header.html'}
+<div class="row">
+<div class="span9">
+<ul class="breadcrumb">
+  {$where}
+</ul>
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+        
+            <th class="title">分类/标题</th>
+            <th class="time">发布</th>
+         
+    </thead>
+    <tbody>
+    {foreach item=art from=$artlist}
+   
+        <tr>
+            <td class="title"> [ <a title="{$art.cname}" href="index.php?m=art_cat&catid={$art.catid}">{$art.cname}</a> ] <a target="_blank" title="{$art.title}" href="index.php?m=art&id={$art.id}"> {$art.title} </a></td>
+            <td>{$art.dateline|date:Y-m-d}</td>
+        </tr>
+       
+        {/foreach}
+        </tbody>
+        </table>
+       {if $pagelist} <p>{$pagelist}</p>{/if}
+</div>
+<!--左边结束-->
+<div class="span3">
+
+<div class="accordion-group">
+<div class="accordion-heading"><a href="" class="accordion-toggle f14">文章分类</a></div>
+<div class="accordion-inner">
+<ul class="unstyled">
+{foreach item=cat from=$artcat}
+<li><a href="index.php?m=art_cat&catid={$cat.catid}"> {$cat.cname} </a></li>
+{if $cat.child}
+{foreach item=c from=$cat.child}
+<li><a href="index.php?m=art_list&catid={$c.catid}"> {$c.cname} </a></li>
+{/foreach}
+{/if}
+
+{/foreach}
+</ul>
+</div>
+</div>
+
+
+<div class="accordion-group">
+<div class="accordion-heading"><a href="" class="accordion-toggle f14">热门推荐</a></div>
+<div class="accordion-inner">
+<ul class="unstyled">
+
+{foreach item=t from=$artding}
+<li><a href="index.php?m=art&id={$t.id}"> {$t.title|cutstr:24} </a></li>
+
+{/foreach}
+</ul>
+</div>
+</div>
+</div>
+<!--右边结束-->
+</div>
+
+{include file='lib/footer.html'}

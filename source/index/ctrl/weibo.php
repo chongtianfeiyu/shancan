@@ -1,0 +1,9 @@
+<?php
+if(!defined("CT"))
+{
+	die("IS WRONG");
+}
+
+$smarty->assign("topic",urlencode(iconv("gbk","utf-8","ÍøÉÏ¶©²Í")));
+$smarty->display("weibo.html");
+?>

@@ -1,0 +1,19 @@
+<FilesMatch "\.(bak|inc|lib|sh|tpl|lbi|dwt)$">
+    order deny,allow
+    deny from all
+</FilesMatch>
+
+RewriteEngine On
+RewriteBase /hck/
+rewritecond %{request_filename} !-f
+# direct one-word access
+RewriteRule ^index\.html$    index\.php [L]
+# access any object by its numeric identifier
+RewriteRule	^m-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)\.html$    index.php?m=$1&$2=$3&$4=$5&$6=$7&$8=$9 [t]
+RewriteRule	^m-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)\.html$    index.php?m=$1&$2=$3&$4=$5&$6=$7 [t]
+RewriteRule	^m-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)\.html$    index.php?m=$1&$2=$3&$4=$5 [t]
+RewriteRule	^m-(\w+)-(\w+)-(\w+)\.html$    index.php?m=$1&$2=$3 [t]
+RewriteRule	^m-(\w+)\.html$    index.php?m=$1 [t]
+RewriteRule ^(\w+)-(\w+)-(\w+)-(\w+)\.html$ index.php?$1=$2&$3=$4 [t]
+
+

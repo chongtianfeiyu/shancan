@@ -1,0 +1,81 @@
+{include file='lib/header.html'}
+<div class="well">
+<div style=" width:600px; margin:0 auto;">
+                                
+                            
+                            <form class="form-inline" id="map_search" action="index.php" data-query="">
+                            <input type="hidden" name="m" value="search" />
+                                
+                                   
+                                    <label id="map_search_cai">美食:</label>
+                                    <input id="map_search_cai" class="text" type="text" name="cai" style="height:30px;" placeholder="美食名称" value="{$smarty.get.cai}">
+                                    <label id="map_search_shop">餐厅:</label>
+                                    <input id="map_search_shop" class="text" type="text" name="shop"  style="height:30px;" placeholder="餐厅名称" value="{$smarty.get.shop}">
+                                    <input id="map_search_restaurant" type="submit" value="搜索" class="btn">
+                                    
+                                 
+                                
+                            </form>
+</div>
+</div>
+<div class="row">
+<div class="span9">
+  <table class="table table-bordered  table-condensed  "  >
+ 
+  {foreach item=cai from=$cailist}
+   
+  <tr>
+    <td height="25" bgcolor="#FFFFFF"> 
+    <!--商店信息-->
+                    <div id="shopinfo{$cai.shopid}" style="display:none;">
+                <div class="meta vcard"><span class="name">{$cai.shopname}</span><span class="tel">({$cai.phone})</span></div>
+                </div>
+                {$cai.title}</td>
+    <td align="center" bgcolor="#FFFFFF">{$cai.price}元</td>
+    <td bgcolor="#FFFFFF">{$cai.shopname}</td>
+    <td align="center" bgcolor="#FFFFFF">
+    
+     <a href="javascript:;" class="addCart" shopid='{$cai.shopid}' caiid='{$cai.id}' cart_count="0" name="{$cai.title}" price="{$cai.price}">{if $cai.in_cart}已购买{else}购买{/if}</a></td>
+    </tr>
+    {/foreach}
+    {if $pagelist}
+  <tr>
+    <td height="30" colspan="2" align="center" bgcolor="#FFFFFF">{$pagelist}</td>
+    </tr>
+    {/if}
+</table>
+
+</div>
+<div class="span3">
+<div>
+ <h3>还是不太敢在线订餐？</h3>
+ <p>别担心，你的订单会立刻得到处理，进度还会实时反馈给你。很多人已经用上瘾了，你也试一次吧。</p>
+ </div>
+ <form   action="index.php?m=guest&a=add_db" method="post">
+								 
+					<textarea id="ask_answer_content"  class="input-xlarge"  style=" width:100%;height:100px;" name="content"></textarea>
+				 
+					<input   type="submit" value="好了，提交" class="btn">
+				 
+			</form>
+ 
+ 
+ {foreach item=guest from=$guestlist}
+ <table class="table table-bordered  table-condensed   ">
+ <tr>
+        <td><strong>{$guest.username}</strong> ： {$guest.content} </td>  </tr>
+ <tr>
+            
+             
+           <td> 口福答疑 {$guest.reply} </td>
+</tr>
+        
+ </table>      	
+          {/foreach}
+ 
+
+</div>
+</div>
+
+
+{include file='lib/footer.html'}

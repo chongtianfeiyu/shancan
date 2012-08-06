@@ -1,0 +1,40 @@
+	<ul class="nav nav-tabs nav-stacked">
+
+        <li {if $smarty.get.a eq 'history'}class="active"{/if}>
+			<a href="index.php?m=shopcar&a=history">订单历史</a>
+		</li>
+        
+        <li {if $smarty.get.m eq 'groupbuy' && $smarty.get.a eq 'my'} class="active"{/if}>
+        	<a href="index.php?m=groupbuy&a=my">我的团购</a>
+        </li>
+        
+
+		<li {if $smarty.get.a eq 'my' && $smarty.get.m eq'guest'}class="active"{/if}>
+			<a href="index.php?m=guest&a=my">我的答疑</a>
+		</li>
+		
+        <li {if $smarty.get.m eq 'paylog'} class="active"{/if}>
+        	<a href="index.php?m=paylog">账户余额</a>
+        </li>
+        
+        <li {if $smarty.get.m eq 'recharge'} class="active"{/if} >
+        	<a href="index.php?m=recharge">在线充值</a>
+        </li>
+        
+         <li {if $smarty.get.m eq 'grade_log'}class="active"{/if}>
+        <a href="index.php?m=grade_log">兑换记录</a>
+        </li>
+        
+        <li {if $smarty.get.a eq 'spread'}class="active"{/if}><a href="index.php?m=user&a=spread">我要推广</a></li>
+        		<li {if $smarty.get.a eq 'chpwd'}class="active"{/if}>
+			<a href="index.php?m=user&a=chpwd">帐号密码</a>
+		</li>
+        
+        <li {if $smarty.get.a eq 'myaddress'}class="active"{/if}>
+			<a href="index.php?m=user&a=myaddress">常用地址</a>
+		</li>
+        
+		<li {if $smarty.get.a eq 'edi'}class="active"{/if}>
+			<a href="index.php?m=user&a=edi">联系信息</a>
+		</li>
+	</ul>

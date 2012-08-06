@@ -1,0 +1,24 @@
+<!--购物车列表-->
+{foreach item=s from=$shopcart }
+<p class="restaurant " id="cart_restaurant{$s.shopid}">
+<h3><a href="index.php?m=shop&shopid={$s.shopid}" target="_blank">{$s.shopname}</a> <small>{if $s.phone}(电话：{$s.phone} ){/if}</small></h3>
+
+<table>
+{foreach item=cai from=$s.cailist}   
+<tr>
+<td class="span4">{$cai.title}</td>
+<td class="span3">{$cai.price}</td>
+
+<td class="span3"><a href="javascript:;" class=" cart_l" caiid='{$cai.caiid}'>-</a>
+<span class="cart_count" id="cart_count{$cai.caiid}">{$cai.cainum}</span>
+<a href="javascript:;" class="  cart_r" caiid='{$cai.caiid}'>+</a>
+</td>
+
+<td class="span2  cart_delete   "  caiid='{$cai.caiid}'><span class="pointer icon-remove"> </span></td>
+</tr>
+{/foreach}
+</table>
+</p>
+{/foreach}
+<p>总价：<span id="totalmoney">{$totalmoney}</span>元</p>
+<!--购物车结束-->

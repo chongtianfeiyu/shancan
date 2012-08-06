@@ -1,0 +1,64 @@
+{include file='lib/header.html'}
+<div class="row">
+<div class="span8">
+<h2>注册<small>或者<a href="index.php?m=user&a=login">登录</a></small></h2>
+			
+		<form action="index.php?m=user&a=regdb" method="post" class="account_form">
+			<table  class="table  table-bordered  ">
+				<tr id="email-field">
+					<th><label  for="email">Email</label></th>
+					<td>
+						<input type="text"  name="email" autocomplete="off" id="ajax_ckemail" class="text"  style="height:30px;"  value=""/> <span  id="ajax_ckemail_res"></span>
+						<div class="hint">登录及找回密码用，不会公开</div>
+					</td>
+				</tr>
+				<tr id="username-field">
+					<th><label for="username">用户名</label></th>
+					<td>
+						<input type="text"  name="username" id="ajax_username" autocomplete="off" class="text"  style="height:30px;"  value="" /> <span id="ajax_username_res"></span>
+						<div class="hint">2-16 个字母，数字，汉字或下划线</div>
+					</td>
+				</tr>
+				<tr id="password-field">
+					<th><label for="pwd1">密码 </label></th>
+					<td>
+						<input type="password"   name="pwd1" id="ajax_pwd1" autocomplete="off" class="text"  style="height:30px;"  value="" /> <span id="ajax_pwd1_res"></span>
+						<br/>
+						<span class="hint">最少4个字符</span>
+				  </td>
+				</tr>
+                
+                <tr id="password-field">
+					<th><label for="pwd1">重复密码 </label></th>
+					<td>
+						<input type="password" name="pwd2" id="ajax_pwd2" autocomplete="off" class="text"  style="height:30px;"  value="" /> <span id="ajax_pwd2_res"></span>
+						<br/>
+						<span class="hint">最少 4 个字符</span>
+				  </td>
+				</tr>
+                <tr>
+                <th><label>推荐人ID</label></th>
+                <td><input type="text"   name="fuserid" class="h30 input-mini" value="{$smarty.get.fuserid}" />(填写用户ID,数字)</td>
+                </tr>
+                
+				<tr id="signin-field">
+					<th></th>
+					<td><input type="submit" id="signin" class="btn" value="注册" /></td>
+				</tr>
+			</table>
+		</form>
+
+</div>
+<div class="span4">
+<h2>注册有哪些好处？</h2>
+<table class="table table-bordered"><tr><td>
+无论是否注册，你都可以把常吃的餐厅定制到首页，但是注册以后你辛辛苦苦的定制就不会随cookie一起容易丢失。
+</td>
+</tr>
+</table>
+</p>
+</div>
+
+</div>
+
+{include file='lib/footer.html'}
